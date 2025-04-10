@@ -1,0 +1,12 @@
+{% extends 'user/base.html' %}
+{% block content %}
+<h2>All Questions</h2>
+{% for question in questions %}
+    <p>
+        <a href="{% url 'view_question' question.id %}">{{ question.title }}</a> 
+        <br>by {{ question.user.username }} on {{ question.created_at }}
+    </p>
+{% empty %}
+    <p>No questions posted yet.</p>
+{% endfor %}
+{% endblock %}
